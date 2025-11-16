@@ -129,3 +129,9 @@ log_info "Starting VS Code Restore..."
 "$SCRIPT_DIR/scripts/vscode_restore.sh"
 log_info "Completed VS Code Restore."
 # --- VS Code Restore End ---------------------------------------------------
+
+# --- Monitor Layout Restore Start -------------------------------------------
+log_info "Restoring GNOME Monitor Layout..."
+"$SCRIPT_DIR/configs/gnome/monitor_layout_restore.sh"
+log_info "Completed GNOME Monitor Layout Restore."
+# --- Monitor Layout Restore End ---------------------------------------------
