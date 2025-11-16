@@ -3,13 +3,13 @@
 # system_restore.sh
 # --------------------------------------------------------------------
 # Full SRE Laptop Restore Pipeline
-# Now includes:
+# Includes:
 #   - Monitor Layout Capture
 #   - Monitor Layout Restore
 #   - GNOME/TilingAssistant restore
 #   - Firefox/Chrome optimization
 #   - Repo integrity checks
-#   - Full logging framework
+#   - Optional: Log rotation
 # --------------------------------------------------------------------
 
 set -euo pipefail
@@ -27,7 +27,7 @@ log_info "Start: $(date)"
 log_info "--------------------------------------------------------"
 
 # --------------------------------------------------------------------
-# PHASE 1 – Monitor Layout Capture (pre-restore baseline)
+# PHASE 1 – Monitor Layout Capture
 # --------------------------------------------------------------------
 log_info "Phase 1: Capturing current monitor layout..."
 
@@ -38,7 +38,7 @@ else
 fi
 
 # --------------------------------------------------------------------
-# PHASE 2 – Restore GNOME + Tiling Assistant Settings
+# PHASE 2 – Restore GNOME/Tiling Assistant Settings
 # --------------------------------------------------------------------
 log_info "Phase 2: Restoring GNOME/Tiling Assistant settings..."
 
@@ -54,9 +54,9 @@ else
 fi
 
 # --------------------------------------------------------------------
-# PHASE 3 – Firefox browser restore
+# PHASE 3 – Firefox restore
 # --------------------------------------------------------------------
-log_info "Phase 3: Restoring Firefox optimizations..."
+log_info "Phase 3: Applying Firefox optimizations..."
 
 if [[ -f "$ROOT_DIR/scripts/optimize_firefox.sh" ]]; then
     bash "$ROOT_DIR/scripts/optimize_firefox.sh"
@@ -66,9 +66,9 @@ else
 fi
 
 # --------------------------------------------------------------------
-# PHASE 4 – Chrome browser restore
+# PHASE 4 – Chrome restore
 # --------------------------------------------------------------------
-log_info "Phase 4: Restoring Chrome optimizations..."
+log_info "Phase 4: Applying Chrome optimizations..."
 
 if [[ -f "$ROOT_DIR/scripts/optimize_chrome.sh" ]]; then
     bash "$ROOT_DIR/scripts/optimize_chrome.sh"
@@ -78,9 +78,9 @@ else
 fi
 
 # --------------------------------------------------------------------
-# PHASE 5 – Repo Validation
+# PHASE 5 – Repo validation
 # --------------------------------------------------------------------
-log_info "Phase 5: Validating repository..."
+log_info "Phase 5: Validating git repository..."
 
 cd "$ROOT_DIR"
 if git status --porcelain | grep -q .; then
@@ -90,7 +90,7 @@ else
 fi
 
 # --------------------------------------------------------------------
-# PHASE 6 – Restore Monitor Layout (post-GNOME restore)
+# PHASE 6 – Monitor Layout Restore
 # --------------------------------------------------------------------
 log_info "Phase 6: Restoring monitor layout..."
 
@@ -99,6 +99,18 @@ if [[ -f "$ROOT_DIR/configs/gnome/monitor_layout_restore.sh" ]]; then
     log_success "Monitor layout restored."
 else
     log_error "Monitor layout restore script missing!"
+fi
+
+# --------------------------------------------------------------------
+# PHASE 7 – Optional Log Rotation
+# --------------------------------------------------------------------
+log_info "Phase 7: Running optional log rotation..."
+
+if [[ -f "$ROOT_DIR/scripts/log_rotate.sh" ]]; then
+    bash "$ROOT_DIR/scripts/log_rotate.sh"
+    log_success "Log rotation completed."
+else
+    log_warning "log_rotate.sh missing — skipping log rotation."
 fi
 
 # --------------------------------------------------------------------
