@@ -123,3 +123,9 @@ fi
 log_success "SRE Laptop Restore – Pipeline completed."
 log_info "End: $(date)"
 
+
+# --- VS Code Restore Start -------------------------------------------------
+log_info "Starting VS Code Restore..."
+"$SCRIPT_DIR/scripts/vscode_restore.sh"
+log_info "Completed VS Code Restore."
+# --- VS Code Restore End ---------------------------------------------------
