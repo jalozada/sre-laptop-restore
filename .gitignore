@@ -1,0 +1,68 @@
+# -----------------------------------------------------------------------------
+# SRE Laptop Restore – .gitignore (Private Repo)
+# -----------------------------------------------------------------------------
+# This repo contains sensitive workstation restore logic.
+# No cache, logs, local paths, backups, or temp files should ever be tracked.
+# -----------------------------------------------------------------------------
+
+# === Backup Outputs ===
+backup/*.log
+backup/*.txt
+backup/*.json
+backup/*.yaml
+backup/*.tar
+backup/*.tar.gz
+backup/*.tar.zst
+backup/*.zst
+backup/*_snapshot_*.*
+backup/system_snapshot_*.*
+backup/*_report_*.txt
+
+# === Restore Outputs ===
+restore/*.log
+restore/*.txt
+restore/*.tmp
+
+# === System Sensitive Files ===
+*.crt
+*.key
+*.pem
+*.asc
+*.gpg
+*.p12
+*.pfx
+
+# === Editor / OS noise ===
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# === Python noise ===
+__pycache__/
+*.pyc
+
+# === Node noise (if any future tools added) ===
+node_modules/
+
+# === Secrets / Credentials (never stored here) ===
+.env
+*.env
+.env.*
+secrets.*
+config.local.*
+
+# === Container junk ===
+*.pid
+*.socket
+
+# === Temp directories ===
+tmp/
+temp/
+.cache/
+
+# === Logs ===
+*.log
+*.audit
+*.debug
