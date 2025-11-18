@@ -20,33 +20,16 @@ This document assumes:
 
 # 2. Architecture Overview
 
-```text
-                    ┌───────────────────────────┐
-                    │   Borg Local Repository    │
-                    │ ~/system-backups/borg_repo │
-                    └──────────────┬────────────┘
-                                   │
-                                   │ borg create
-                                   ▼
-                     ┌──────────────────────────┐
-                     │   Backup Health JSON      │
-                     │ ~/backup_health.json      │
-                     └──────────────┬────────────┘
-                                   │
-                          ExecStartPost (systemd)
-                                   │
-                                   ▼
- ┌──────────────────┐     ┌──────────────────────┐     ┌───────────────────────┐
- │  Mirror to T9     │     │ HTML Dashboard       │     │ Webhook Notification   │
- │ /media/T91/...    │     │ ~/system-backups/...│     │ (disabled by default)  │
- └──────────────────┘     └──────────────────────┘     └───────────────────────┘
-                                   │
-                                   ▼
-                     ┌───────────────────────────┐
-                     │  Systemd Timers (SRE)      │
-                     │ sre-backup.timer           │
-                     │ sre-borg-check.timer       │
-                     └───────────────────────────┘
+```mermaid
+flowchart TD
+    A[Borg Local Repository<br/>~/system-backups/borg_repo] -->|borg create| B[Backup Health JSON<br/>~/backup_health.json]
+    B --> C[ExecStartPost (systemd)]
+    C --> D1[Mirror to T9<br/>/media/T91/...]
+    C --> D2[HTML Dashboard<br/>~/system-backups/...]
+    C --> D3[Webhook Notification<br/>(disabled by default)]
+    D1 --> E[Systemd Timers (SRE)<br/>sre-backup.timer<br/>sre-borg-check.timer]
+    D2 --> E
+    D3 --> E
 ```
 
 ---
