@@ -22,12 +22,12 @@ This document assumes:
 
 ```mermaid
 flowchart TD
-    A[Borg Local Repository<br/>~/system-backups/borg_repo] -->|borg create| B[Backup Health JSON<br/>~/backup_health.json]
-    B --> C[ExecStartPost (systemd)]
-    C --> D1[Mirror to T9<br/>/media/T91/...]
-    C --> D2[HTML Dashboard<br/>~/system-backups/...]
-    C --> D3[Webhook Notification<br/>(disabled by default)]
-    D1 --> E[Systemd Timers (SRE)<br/>sre-backup.timer<br/>sre-borg-check.timer]
+    A["Borg Local Repository<br/>~/system-backups/borg_repo"] -->|borg create| B["Backup Health JSON<br/>~/backup_health.json"]
+    B --> C["ExecStartPost &lt;systemd&gt;"]
+    C --> D1["Mirror to T9<br/>/media/T91/..."]
+    C --> D2["HTML Dashboard<br/>~/system-backups/..."]
+    C --> D3["Webhook Notification<br/>(disabled by default)"]
+    D1 --> E["Systemd Timers (SRE)<br/>sre-backup.timer<br/>sre-borg-check.timer"]
     D2 --> E
     D3 --> E
 ```
@@ -114,8 +114,8 @@ systemctl --user list-timers --all | grep -E "sre-backup|sre-borg"
 ```
 
 Expected:
-- `sre-backup.timer`: next run at 02:00
-- `sre-borg-check.timer`: next run Sunday 03:30
+- `sre-backup.timer`: next run at 02:00  
+- `sre-borg-check.timer`: next run Sunday 03:30  
 
 ---
 
@@ -126,7 +126,7 @@ Expected:
 borg extract ~/system-backups/borg_repo::2025-11-18-home /
 ```
 
-Preview contents:
+Preview:
 ```bash
 borg list ~/system-backups/borg_repo::2025-11-18-home
 ```
@@ -159,7 +159,7 @@ Restore Borg repo:
 cp -r /media/javier/T91/system-backups-mirror/borg_repo ~/system-backups/
 ```
 
-Restore home directory:
+Restore home:
 ```bash
 borg extract ~/system-backups/borg_repo::latest
 ```
@@ -167,7 +167,7 @@ borg extract ~/system-backups/borg_repo::latest
 ---
 
 ## **6.2 Scenario: Borg Repo Corruption**
-Replace with T9 mirror:
+Recover from mirror:
 ```bash
 rm -rf ~/system-backups/borg_repo
 cp -r /media/javier/T91/system-backups-mirror/borg_repo ~/system-backups/
@@ -184,17 +184,17 @@ systemctl --user start sre-backup.service
 ---
 
 ## **6.4 Scenario: Lost Borg Key**
-If `` references a file:
+If `` uses a file:
 
-- Recover file from T9 mirror  
-- Recover from password manager  
-- Recover from GitHub Secret (future enhancement)  
+- Recover key file from T9 mirror  
+- Or from password manager  
+- Or from GitHub Secrets (future)  
 
 ---
 
 # 7. Troubleshooting
 
-### Backup did not run
+### Backup didn’t run
 ```bash
 journalctl --user -u sre-backup.service --no-pager
 ```
@@ -204,10 +204,10 @@ journalctl --user -u sre-backup.service --no-pager
 lsblk | grep T91
 ```
 
-### Dashboard missing borg info
+### Dashboard missing Borg info
 Cause:
-- Borg cannot unlock the repo non-interactively  
-- `` must be exported to the systemd unit  
+- Borg key not available non-interactively  
+- `` missing in systemd env  
 
 ---
 
@@ -224,17 +224,16 @@ Cause:
 ---
 
 # 9. Status Overview
-Validate full system health:
 ```bash
 borg check ~/system-backups/borg_repo && ls /media/javier/T91/system-backups-mirror && systemctl --user list-timers --all
 ```
 
-If all commands succeed → system is healthy.
+If all succeed → system healthy.
 
 ---
 
 # 10. Change History
-- **2025-11-18** — Full validation (Javier + ChatGPT)
-- **2025-11-18** — Dashboard active
-- **2025-11-18** — T9 mirror operational
-- **2025-11-18** — Timers verified
+- **2025-11-18** — Full validation (Javier + ChatGPT)  
+- **2025-11-18** — Dashboard active  
+- **2025-11-18** — T9 mirror operational  
+- **2025-11-18** — Timers verified  
