@@ -26,3 +26,6 @@
 ---
 
 This runbook belongs exclusively to the **SRE Laptop Restore project** and is not part of the Grafana Cloud SRE Homelab.
+
+- **External Monitor Boot Fix** — early KMS GRUB configuration with fallback behavior  
+  [docs/runbook/external_monitor_boot_fix.md](external_monitor_boot_fix.md)
