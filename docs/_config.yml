@@ -1,5 +1,5 @@
 title: "SRE Laptop Restore Runbook"
-description: "Documentation for Javier Lozada’s full SRE laptop backup and restore environment."
+description: "Documentation for restoring and maintaining Javier Lozada’s SRE laptop environment."
 
 remote_theme: just-the-docs/just-the-docs
 
@@ -8,3 +8,7 @@ search_enabled: true
 markdown: kramdown
 kramdown:
   input: GFM
+
+just_the_docs:
+  mermaid:
+    enabled: true
