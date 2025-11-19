@@ -1,0 +1,63 @@
+---
+remote_theme: just-the-docs/just-the-docs
+
+title: "SRE Laptop Restore Runbook"
+description: >
+  Documentation for backup, restore, automation, diagnostics, and environment
+  recovery. Maintained under the SRE standards of Javier A. Lozada.
+
+search_enabled: true
+nav_order: 1
+
+nav:
+  - title: "Runbook"
+    url: "/"
+
+    children:
+      - title: "Architecture"
+        url: "/architecture/"
+
+      - title: "First-Run Experience"
+        url: "/first_run/"
+
+      - title: "Backup"
+        children:
+          - title: "Backup Pipeline"
+            url: "/backup/pipeline/"
+          - title: "Backup Automation"
+            url: "/backup/automation/"
+
+      - title: "Restore"
+        children:
+          - title: "System Restore Pipeline"
+            url: "/restore/system_restore/"
+          - title: "Legacy Restore Notes"
+            url: "/restore/system_restore_legacy/"
+
+      - title: "Monitor & Display"
+        children:
+          - title: "External Monitor Boot Fix"
+            url: "/monitor/external_monitor_boot_fix/"
+
+      - title: "GNOME / Tiling"
+        children:
+          - title: "GNOME Restore"
+            url: "/tiling/gnome_restore/"
+
+      - title: "Browser / VS Code"
+        children:
+          - title: "VS Code Restore"
+            url: "/browser/vscode_restore/"
+
+      - title: "Diagnostics"
+        url: "/diagnostics/"
+
+      - title: "Troubleshooting"
+        url: "/troubleshooting/"
+
+      - title: "Runbook Version"
+        url: "/version/"
+
+markdown: kramdown
+kramdown:
+  input: GFM

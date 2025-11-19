@@ -1,0 +1,65 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    // ===== Markdown / Docs =====
+    "markdown.preview.doubleClickToSwitchToEditor": true,
+    "markdown.preview.scrollEditorWithPreview": true,
+    "markdown.preview.scrollPreviewWithEditor": true,
+    "markdown.preview.breaks": true,
+    "markdown.extension.toc.omittedFromToc": {
+      "_Sidebar": true
+    },
+    "files.associations": {
+      "*.md": "markdown",
+      "*.yml": "yaml"
+    },
+
+    // ===== YAML =====
+    "yaml.format.enable": true,
+    "yaml.validate": true,
+    "yaml.schemas": {
+      "https://json.schemastore.org/github-workflow.json": "/*.github/workflows/*"
+    },
+
+    // ===== Git =====
+    "git.enableCommitSigning": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.inputValidation": true,
+    "git.mergeEditor": true,
+
+    // ===== Editor Quality-of-Life =====
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on",
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "boundary",
+    "files.eol": "\n",
+
+    // ===== Workspace Navigation =====
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.tree.indent": 16,
+
+    // ===== GitHub Pages: Just-the-Docs =====
+    "markdown.styles": [
+      "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "yzhang.markdown-all-in-one",
+      "bierner.markdown-preview-github-styles",
+      "shd101wyy.markdown-preview-enhanced",
+      "redhat.vscode-yaml",
+      "eamodio.gitlens",
+      "github.vscode-pull-request-github",
+      "esbenp.prettier-vscode"
+    ]
+  }
+}
