@@ -1,0 +1,47 @@
+---
+title: "SRE Laptop Restore Runbook"
+description: "Full documentation for restoring and maintaining Javier Lozada's SRE laptop environment."
+theme: "just-the-docs"
+url: "https://jalozada.github.io/sre-laptop-restore"
+color_scheme: "light"
+
+just_the_docs:
+  search_enabled: true
+  collections:
+    docs:
+      name: Documentation
+
+# Manual navigation overrides auto-generated sidebar
+nav:
+  - title: "Home"
+    url: "/"
+
+  - title: "Backup Pipeline"
+    url: "/backup/pipeline/"
+
+  - title: "Restore Pipeline"
+    url: "/restore/system_restore/"
+
+  - title: "Borg Backup"
+    url: "/backup/automation/"
+
+  - title: "Monitor Configuration & Recovery"
+    url: "/monitor/external_monitor_boot_fix/"
+
+  - title: "Audio Sink Recovery"
+    url: "/monitor/audio_sink_recovery/"
+
+  - title: "Browser Optimization"
+    url: "/browser/vscode_restore/"
+
+  - title: "GNOME & Tiling Assistant"
+    url: "/tiling/gnome_restore/"
+
+  - title: "Troubleshooting"
+    url: "/troubleshooting/"
+
+  - title: "Backup Automation Runbook"
+    url: "/backup/automation/"
+
+  - title: "SRE Laptop Backup Pipeline — Runbook"
+    url: "/backup/pipeline/"
