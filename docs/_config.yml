@@ -1,28 +1,19 @@
 ---
 # ---------------------------------------------------------
-# SRE Laptop Restore — GitHub Pages Configuration
+# SRE Laptop Restore — GitHub Pages Config
 # ---------------------------------------------------------
 # Author: Javier Antonio Lozada
-# Project Owner: Javier A. Lozada (Lead SRE Architect)
-# Documentation Framework:
-#   - SRE Reproducibility Standards
-#   - Deterministic restores
-#   - Single-source-of-truth documentation
-#   - Script-first workflow design
-#
-# Last Updated: {{ site.time | date: "%Y-%m-%d" }}
-#
-# Notes:
-# - Comments are optimized for long-term maintainability.
-# - No inline URLs exceed yamllint 80-char limits.
-# - All sidebar sections reflect directory structure under /docs.
+# Framework Notes:
+#   - Deterministic SRE documentation
+#   - Script-first reproducible workflows
+#   - YAML strictly linted for CI validity
 # ---------------------------------------------------------
 
 theme: just-the-docs
 
 title: "SRE Laptop Restore Runbook"
 description: >
-  Documentation for full backup, restore, automation, and environment
+  Documentation for backup, restore, automation, diagnostics, and environment
   recovery. Maintained under the SRE standards of Javier A. Lozada.
 
 search_enabled: true
@@ -31,17 +22,19 @@ nav_order: 1
 # ---------------------------------------------------------
 # Sidebar Navigation (Hierarchical)
 # ---------------------------------------------------------
-# The structure below mirrors the physical directory layout
-# in the /docs/ folder. Each entry maps directly to the
-# corresponding Markdown page. Ordering reflects operational
-# priority: backup → restore → environment → tooling.
+# The tree below mirrors the /docs directory structure.
 # ---------------------------------------------------------
 
 nav:
   - title: "Runbook"
     url: "/"
     children:
-      # ---------------- BACKUP ----------------
+      - title: "Architecture"
+        url: "/architecture.html"
+
+      - title: "First-Run Experience"
+        url: "/first_run/index.html"
+
       - title: "Backup"
         children:
           - title: "Backup Pipeline"
@@ -49,7 +42,6 @@ nav:
           - title: "Backup Automation"
             url: "/backup/automation.html"
 
-      # ---------------- RESTORE ----------------
       - title: "Restore"
         children:
           - title: "System Restore Pipeline"
@@ -57,31 +49,34 @@ nav:
           - title: "Legacy Restore Notes"
             url: "/restore/system_restore_legacy.html"
 
-      # ------------- MONITOR & DISPLAY ---------
       - title: "Monitor & Display"
         children:
           - title: "External Monitor Boot Fix"
             url: "/monitor/external_monitor_boot_fix.html"
 
-      # ------------- GNOME / TILING ------------
       - title: "GNOME / Tiling"
         children:
           - title: "GNOME Restore"
             url: "/tiling/gnome_restore.html"
 
-      # ----------- BROWSER / VSCODE ------------
       - title: "Browser / VS Code"
         children:
           - title: "VS Code Restore"
             url: "/browser/vscode_restore.html"
 
-      # -------------- TROUBLESHOOTING ----------
+      - title: "Diagnostics"
+        url: "/diagnostics/index.html"
+
       - title: "Troubleshooting"
         url: "/troubleshooting/index.html"
+
+      - title: "Runbook Version"
+        url: "/VERSION.html"
 
 # ---------------------------------------------------------
 # Markdown Processing
 # ---------------------------------------------------------
+
 markdown: kramdown
 kramdown:
   input: GFM
