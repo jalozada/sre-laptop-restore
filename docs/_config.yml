@@ -1,63 +1,46 @@
----
-remote_theme: just-the-docs/just-the-docs
-
 title: "SRE Laptop Restore Runbook"
-description: >
-  Documentation for backup, restore, automation, diagnostics, and environment
-  recovery. Maintained under the SRE standards of Javier A. Lozada.
+description: "Full documentation for restoring and maintaining Javier Lozada's SRE laptop environment."
+theme: "just-the-docs"
+url: "https://jalozada.github.io/sre-laptop-restore"
+color_scheme: "light"
 
-search_enabled: true
-nav_order: 1
+just_the_docs:
+  search_enabled: true
+  collections:
+    docs:
+      name: Documentation
 
+# Manual navigation overrides auto-generated sidebar
 nav:
-  - title: "Runbook"
+  - title: "Home"
     url: "/"
-    children:
 
-      - title: "Architecture"
-        url: "/architecture.html"
+  - title: "Backup Pipeline"
+    url: "/backup/pipeline/"
 
-      - title: "First-Run Experience"
-        url: "/first_run/index.html"
+  - title: "Restore Pipeline"
+    url: "/restore/system_restore/"
 
-      - title: "Backup"
-        children:
-          - title: "Backup Pipeline"
-            url: "/backup/pipeline.html"
-          - title: "Backup Automation"
-            url: "/backup/automation.html"
+  - title: "Borg Backup"
+    url: "/backup/automation/"
 
-      - title: "Restore"
-        children:
-          - title: "System Restore Pipeline"
-            url: "/restore/system_restore.html"
-          - title: "Legacy Restore Notes"
-            url: "/restore/system_restore_legacy.html"
+  - title: "Monitor Configuration & Recovery"
+    url: "/monitor/external_monitor_boot_fix/"
 
-      - title: "Monitor & Display"
-        children:
-          - title: "External Monitor Boot Fix"
-            url: "/monitor/external_monitor_boot_fix.html"
+  - title: "Audio Sink Recovery"
+    url: "/monitor/audio_sink_recovery/"
 
-      - title: "GNOME / Tiling"
-        children:
-          - title: "GNOME Restore"
-            url: "/tiling/gnome_restore.html"
+  - title: "Browser Optimization"
+    url: "/browser/vscode_restore/"
 
-      - title: "Browser / VS Code"
-        children:
-          - title: "VS Code Restore"
-            url: "/browser/vscode_restore.html"
+  - title: "GNOME & Tiling Assistant"
+    url: "/tiling/gnome_restore/"
 
-      - title: "Diagnostics"
-        url: "/diagnostics/index.html"
+  - title: "Troubleshooting"
+    url: "/troubleshooting/"
 
-      - title: "Troubleshooting"
-        url: "/troubleshooting/index.html"
+  - title: "Backup Automation Runbook"
+    url: "/backup/automation/"
 
-      - title: "Runbook Version"
-        url: "/VERSION.html"
-
-markdown: kramdown
-kramdown:
-  input: GFM
+  - title: "SRE Laptop Backup Pipeline — Runbook"
+    url: "/backup/pipeline/"
