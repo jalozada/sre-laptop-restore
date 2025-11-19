@@ -1,20 +1,9 @@
 ---
-# ---------------------------------------------------------
-# SRE Laptop Restore — GitHub Pages Config (Root-Level)
-# ---------------------------------------------------------
-# GitHub Pages requires:
-#   - remote_theme instead of theme
-#   - jekyll-remote-theme plugin enabled
-#   - all docs stored in /docs, declared via "source:"
-# ---------------------------------------------------------
-
-# Use the Just-the-Docs theme via GitHub Pages
 remote_theme: just-the-docs/just-the-docs
 
 plugins:
   - jekyll-remote-theme
 
-# All documentation files are inside /docs
 source: docs
 
 title: "SRE Laptop Restore Runbook"
@@ -29,6 +18,7 @@ nav:
   - title: "Runbook"
     url: "/"
     children:
+
       - title: "Architecture"
         url: "/architecture.html"
 

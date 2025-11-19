@@ -1,7 +1,3 @@
-# ---------------------------------------------------------
-# Deploy Just the Docs — GitHub Pages Workflow (2025 Compliant)
-# ---------------------------------------------------------
-
 name: "Deploy Just the Docs"
 
 on:
@@ -22,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Setup Ruby
@@ -30,26 +26,27 @@ jobs:
         with:
           ruby-version: "3.2"
 
-      - name: Install Jekyll + theme
+      - name: Install Jekyll + Just-the-Docs
         run: |
           bundle init
           echo 'gem "just-the-docs"' >> Gemfile
           bundle install
 
-      - name: Build Jekyll site
+      - name: Build site with Jekyll
         run: bundle exec jekyll build --source docs --destination _site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "_site"
+          path: _site
 
   deploy:
-    runs-on: ubuntu-latest
     needs: build
+    runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
+
     steps:
       - name: Deploy site
         id: deployment
