@@ -1,13 +1,16 @@
 ---
 # ---------------------------------------------------------
-# SRE Laptop Restore — GitHub Pages Config
+# SRE Laptop Restore — Global GitHub Pages Config
 # ---------------------------------------------------------
 # Author: Javier Antonio Lozada
-# Framework Notes:
-#   - Deterministic SRE documentation
-#   - Script-first reproducible workflows
-#   - YAML strictly linted for CI validity
+# Notes:
+#   - Root-level config required for GitHub Pages
+#   - All documentation lives in /docs
+#   - Just-the-docs navigation defined here
 # ---------------------------------------------------------
+
+# Tell GitHub Pages to load content from the docs/ directory
+source: docs
 
 theme: just-the-docs
 
@@ -18,12 +21,6 @@ description: >
 
 search_enabled: true
 nav_order: 1
-
-# ---------------------------------------------------------
-# Sidebar Navigation (Hierarchical)
-# ---------------------------------------------------------
-# The tree below mirrors the /docs directory structure.
-# ---------------------------------------------------------
 
 nav:
   - title: "Runbook"
@@ -72,10 +69,6 @@ nav:
 
       - title: "Runbook Version"
         url: "/VERSION.html"
-
-# ---------------------------------------------------------
-# Markdown Processing
-# ---------------------------------------------------------
 
 markdown: kramdown
 kramdown:
