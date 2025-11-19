@@ -1,18 +1,21 @@
 ---
 # ---------------------------------------------------------
-# SRE Laptop Restore — Global GitHub Pages Config
+# SRE Laptop Restore — GitHub Pages Config (Root-Level)
 # ---------------------------------------------------------
-# Author: Javier Antonio Lozada
-# Notes:
-#   - Root-level config required for GitHub Pages
-#   - All documentation lives in /docs
-#   - Just-the-docs navigation defined here
+# GitHub Pages requires:
+#   - remote_theme instead of theme
+#   - jekyll-remote-theme plugin enabled
+#   - all docs stored in /docs, declared via "source:"
 # ---------------------------------------------------------
 
-# Tell GitHub Pages to load content from the docs/ directory
+# Use the Just-the-Docs theme via GitHub Pages
+remote_theme: just-the-docs/just-the-docs
+
+plugins:
+  - jekyll-remote-theme
+
+# All documentation files are inside /docs
 source: docs
-
-theme: just-the-docs
 
 title: "SRE Laptop Restore Runbook"
 description: >
