@@ -1,7 +1,5 @@
 ---
-title: "Monitor Configuration & Recovery"
 layout: default
-nav_order: 5
 ---
 
 # 🖥️ Monitor Configuration & Recovery

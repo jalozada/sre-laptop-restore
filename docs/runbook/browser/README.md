@@ -1,7 +1,5 @@
 ---
-title: "Browser Optimization"
 layout: default
-nav_order: 7
 ---
 
 # 🌐 Browser Optimization

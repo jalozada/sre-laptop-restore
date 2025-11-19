@@ -1,7 +1,5 @@
 ---
-title: "Audio Sink Recovery"
 layout: default
-nav_order: 6
 ---
 
 # 🔊 Audio Sink Recovery
