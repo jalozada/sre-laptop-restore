@@ -1,14 +1,87 @@
-title: "SRE Laptop Restore Runbook"
-description: "Documentation for restoring and maintaining Javier Lozada’s SRE laptop environment."
+---
+# ---------------------------------------------------------
+# SRE Laptop Restore — GitHub Pages Configuration
+# ---------------------------------------------------------
+# Author: Javier Antonio Lozada
+# Project Owner: Javier A. Lozada (Lead SRE Architect)
+# Documentation Framework:
+#   - SRE Reproducibility Standards
+#   - Deterministic restores
+#   - Single-source-of-truth documentation
+#   - Script-first workflow design
+#
+# Last Updated: {{ site.time | date: "%Y-%m-%d" }}
+#
+# Notes:
+# - Comments are optimized for long-term maintainability.
+# - No inline URLs exceed yamllint 80-char limits.
+# - All sidebar sections reflect directory structure under /docs.
+# ---------------------------------------------------------
 
-remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
+
+title: "SRE Laptop Restore Runbook"
+description: >
+  Documentation for full backup, restore, automation, and environment
+  recovery. Maintained under the SRE standards of Javier A. Lozada.
 
 search_enabled: true
+nav_order: 1
 
+# ---------------------------------------------------------
+# Sidebar Navigation (Hierarchical)
+# ---------------------------------------------------------
+# The structure below mirrors the physical directory layout
+# in the /docs/ folder. Each entry maps directly to the
+# corresponding Markdown page. Ordering reflects operational
+# priority: backup → restore → environment → tooling.
+# ---------------------------------------------------------
+
+nav:
+  - title: "Runbook"
+    url: "/"
+    children:
+      # ---------------- BACKUP ----------------
+      - title: "Backup"
+        children:
+          - title: "Backup Pipeline"
+            url: "/backup/pipeline.html"
+          - title: "Backup Automation"
+            url: "/backup/automation.html"
+
+      # ---------------- RESTORE ----------------
+      - title: "Restore"
+        children:
+          - title: "System Restore Pipeline"
+            url: "/restore/system_restore.html"
+          - title: "Legacy Restore Notes"
+            url: "/restore/system_restore_legacy.html"
+
+      # ------------- MONITOR & DISPLAY ---------
+      - title: "Monitor & Display"
+        children:
+          - title: "External Monitor Boot Fix"
+            url: "/monitor/external_monitor_boot_fix.html"
+
+      # ------------- GNOME / TILING ------------
+      - title: "GNOME / Tiling"
+        children:
+          - title: "GNOME Restore"
+            url: "/tiling/gnome_restore.html"
+
+      # ----------- BROWSER / VSCODE ------------
+      - title: "Browser / VS Code"
+        children:
+          - title: "VS Code Restore"
+            url: "/browser/vscode_restore.html"
+
+      # -------------- TROUBLESHOOTING ----------
+      - title: "Troubleshooting"
+        url: "/troubleshooting/index.html"
+
+# ---------------------------------------------------------
+# Markdown Processing
+# ---------------------------------------------------------
 markdown: kramdown
 kramdown:
   input: GFM
-
-just_the_docs:
-  mermaid:
-    enabled: true
